@@ -1,0 +1,47 @@
+game {
+    gameType: enum, // classic or HP,
+    Players[numOfPlayers]: {
+        name: string,
+        numOfCards: number,
+        infoCard: {
+            Suspects: {
+                index: number,
+                name: string,
+                status: enum, //unknown, inHand, notInHand
+            }
+            Weapon: {
+                index: number,
+                name: string,
+                status: enum, //unknown, inHand, notInHand
+            }
+            Room: {
+                index: number,
+                name: string,
+                status: enum, //unknown, inHand, notInHand
+            }
+            function isKnown(guess) {
+                returns bool
+                true: 2/3 cards in a guess do not have status of 'unknown' from player who showed card
+            }
+            function allCardsKnown(infoCard) {
+                returns bool
+                true: the number of cards with the status of inHand === numOfCards
+                Object.values(cardType).forEach((card) => { // cardType = enum of each card 
+                    infoCard[card][status] === cardStats.inHand --> count++
+                })
+            }
+        }
+    }
+    function isFound(guess) {
+        returns bool
+        true: 2/3 cards in a guess have a status of inHand from any player in game
+        loop through players[i][infoCard][*card*][status] === cardStatus.inHand x3 for each card
+    }
+    guess: {
+        suspect: string,
+        weapons: string,
+        room: string,
+        guesser: Player,
+        shower: Player
+    }
+}
