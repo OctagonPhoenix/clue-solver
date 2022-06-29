@@ -1,3 +1,5 @@
+import Button from 'react-bootstrap/Button';
+
 function App() {
   const inputVariable = "green";
   const otherVariable = "name";
@@ -9,7 +11,7 @@ function App() {
   }
   return (
     <div className="App">
-      {infoCard[inputVariable][otherVariable]}
+      <Button variant='primary'>Primary</Button>
     </div>
   );
 }
